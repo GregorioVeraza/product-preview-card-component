@@ -1,0 +1,154 @@
+@font-face{
+    font-family: "title";
+    src: url(fonts/Montserrat/static/Montserrat-Bold.ttf);
+    font-weight: 700;
+}
+@font-face{
+    font-family: "parrafo";
+    src: url(fonts/Montserrat/static/Montserrat-Medium.ttf);
+    font-weight: 400;
+}
+@font-face{
+    font-family: "header";
+    src: url(fonts/Montserrat/static/Montserrat-Regular.ttf);
+    font-weight: 700;
+}
+
+body{
+    background-color: hsl(30, 38%, 92%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 1vw;
+    width: 40vw;
+}
+
+.container-imagen{
+    height: 60vh;
+    border-radius: 1vw;
+    width: 60vw;
+}
+.container-texto{
+    display: grid;
+    border-radius: 1vw;
+    min-width: 40vh;
+    background-color: hsl(0, 0%, 100%);
+    grid-template-rows: 10% 30% 1fr 15% 15%;
+    grid-template-areas: 
+        "header"
+        "title"
+        "parrafo"
+        "precio"
+        "boton"
+    ;
+    justify-content: left;
+    justify-items: left;
+    align-items: center;
+    align-content: center;
+    height: 60vh;
+    width: 40vw;
+}
+.imagen{
+    height: 100%;
+    border-top-left-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+    object-fit: cover;
+}
+
+.header{
+    grid-area: header;
+    color: hsl(228, 12%, 48%);
+    justify-self: left;
+    font-family: header;
+    font-size: medium;
+}
+
+.titulo{
+    grid-area: title;
+    font-family: title;
+}
+
+.descripcion{
+    grid-area: parrafo;
+    color: hsl(228, 12%, 48%);
+    font-size: 14px;
+    font-family: parrafo;
+    line-height: 22px;
+}
+.boton{
+    grid-area: boton;
+    background-color: hsl(158, 36%, 37%);
+    color: white;
+    border-style: none;
+    border-radius: 0.5em;
+    height: 3em;
+    width: 15em;
+    text-align: center;
+    justify-self: center;
+}
+
+.boton:hover{
+    background-color: hsl(158, 42%, 18%);
+}
+
+.logo{
+    padding-right: 10px;   
+}
+
+.container-precio{
+    display: flex;
+    flex-direction: row;
+    grid-area: precio;
+    font-family: title;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.rebaja{
+    color: hsl(158, 36%, 37%);
+}
+
+.precio{
+    text-decoration: line-through;
+    color: hsl(228, 12%, 48%);
+    font-family: parrafo;  
+    font-size: small;
+    align-self: center;
+}
+/* Estilo por defecto: escritorio */
+.container {
+    display: flex;
+    flex-direction: row; /* Imagen a la izquierda, texto a la derecha */
+    max-width: 600px;
+}
+
+/* Cuando la pantalla sea menor a 768px (móvil/tablet) */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Apilar imagen y texto */
+        max-width: 90%; /* Ocupa más ancho */
+        width: auto;
+    }
+    .container-texto{
+        border-radius: 0px 0px 10px 10px;
+    }
+
+    .imagen {
+        border-radius: 10px 10px 0 0; /* Redondear arriba para móvil */
+        width: 100%;
+        height: 100%;
+    }
+
+    .container-texto {
+        padding: 20px;
+    }
+}
